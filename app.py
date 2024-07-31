@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask_cors import CORS
+import os
+
 
 app = Flask(__name__)
+CORS(app, origins=['http://localhost:3000', 'http://*:3000', 'http://127.0.0.1:3000', '*'])
+
+version = os.getenv('version')  #
+prefix = os.getenv('prefix')  #
+
+UPLOAD_FOLDER = 'uploads/'
 
 
 @app.route('/')
